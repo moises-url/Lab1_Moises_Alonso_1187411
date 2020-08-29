@@ -522,8 +522,7 @@ private: System::Void btnBinario_Click(System::Object^ sender, System::EventArgs
 }
 private: System::Void btnNuevoForm_Click(System::Object^ sender, System::EventArgs^ e) {
 	TitleForm^ miNuevaVentana = gcnew TitleForm();
-	miNuevaVentana->AsignarTitulo(txtTituloForm->Text);
-	miNuevaVentana->ShowDialog();
+	
 }
 };
 }
