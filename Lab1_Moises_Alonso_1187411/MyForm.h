@@ -1,3 +1,5 @@
+#include "TitleForm.h";
+
 #pragma once
 
 namespace Lab1MoisesAlonso1187411 {
@@ -60,6 +62,8 @@ namespace Lab1MoisesAlonso1187411 {
 	private: System::Windows::Forms::Button^ btnBinario;
 	private: System::Windows::Forms::TextBox^ txtBinario;
 	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::Button^ btnNuevoForm;
+	private: System::Windows::Forms::TextBox^ txtTituloForm;
 
 	private:
 		/// <summary>
@@ -99,6 +103,8 @@ namespace Lab1MoisesAlonso1187411 {
 			this->btnBinario = (gcnew System::Windows::Forms::Button());
 			this->txtBinario = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->btnNuevoForm = (gcnew System::Windows::Forms::Button());
+			this->txtTituloForm = (gcnew System::Windows::Forms::TextBox());
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
 			this->groupBox3->SuspendLayout();
@@ -361,11 +367,30 @@ namespace Lab1MoisesAlonso1187411 {
 			this->label6->TabIndex = 0;
 			this->label6->Text = L"Ingrese un entero:";
 			// 
+			// btnNuevoForm
+			// 
+			this->btnNuevoForm->Location = System::Drawing::Point(312, 401);
+			this->btnNuevoForm->Name = L"btnNuevoForm";
+			this->btnNuevoForm->Size = System::Drawing::Size(100, 23);
+			this->btnNuevoForm->TabIndex = 7;
+			this->btnNuevoForm->Text = L"Nueva ventana";
+			this->btnNuevoForm->UseVisualStyleBackColor = true;
+			this->btnNuevoForm->Click += gcnew System::EventHandler(this, &MyForm::btnNuevoForm_Click);
+			// 
+			// txtTituloForm
+			// 
+			this->txtTituloForm->Location = System::Drawing::Point(312, 362);
+			this->txtTituloForm->Name = L"txtTituloForm";
+			this->txtTituloForm->Size = System::Drawing::Size(100, 20);
+			this->txtTituloForm->TabIndex = 8;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(493, 526);
+			this->Controls->Add(this->txtTituloForm);
+			this->Controls->Add(this->btnNuevoForm);
 			this->Controls->Add(this->groupBox5);
 			this->Controls->Add(this->groupBox4);
 			this->Controls->Add(this->groupBox3);
@@ -384,6 +409,7 @@ namespace Lab1MoisesAlonso1187411 {
 			this->groupBox5->ResumeLayout(false);
 			this->groupBox5->PerformLayout();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -493,6 +519,11 @@ private: System::Void btnBinario_Click(System::Object^ sender, System::EventArgs
 	catch (Exception^ e) {
 		MessageBox::Show("Error encontrado: " + e->Message, "Operación fallida", MessageBoxButtons::OK, MessageBoxIcon::Error);
 	}
+}
+private: System::Void btnNuevoForm_Click(System::Object^ sender, System::EventArgs^ e) {
+	TitleForm^ miNuevaVentana = gcnew TitleForm();
+	miNuevaVentana->AsignarTitulo(txtTituloForm->Text);
+	miNuevaVentana->ShowDialog();
 }
 };
 }
